@@ -1,4 +1,5 @@
 const { default: mongoose } = require('mongoose');
+const { droneModelTypes, droneStateTypes } = require('../utils/options');
 const Schema = mongoose.Schema;
 
 const DroneSchema = new Schema({
@@ -9,7 +10,7 @@ const DroneSchema = new Schema({
   model: {
     type: String,
     required: true,
-    enum: ['Lightweight', 'Middleweight', 'Cruiserweight', 'Heavyweight'],
+    enum: droneModelTypes,
   },
   weight: {
     type: String,
@@ -22,7 +23,7 @@ const DroneSchema = new Schema({
   state: {
     type: String,
     required: true,
-    enum: ['IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING'],
+    enum: droneStateTypes,
   },
 });
 
