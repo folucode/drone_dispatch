@@ -17,9 +17,8 @@ app.use((req, res) => {
   return res.status(404).json({ success: false, message: 'Not found' });
 });
 
-app.set('port', process.env.PORT);
-app.listen(app.get('port'), () => {
-  console.log(`app server running on PORT ${app.get('port')}`);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port", this.address().port);
 });
 
 module.exports = app;
