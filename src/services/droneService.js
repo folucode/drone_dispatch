@@ -31,4 +31,22 @@ module.exports = {
       data: load,
     };
   },
+
+  getDrones: async (state) => {
+    if (state == undefined) state = null;
+
+    const drone = await Drone.find({ state });
+
+    if (drone.length < 1) {
+      return {
+        status: 'failed',
+        message: `no drone in the ${state} state`,
+      };
+    }
+
+    return {
+      status: 'success',
+      data: drone,
+    };
+  },
 };

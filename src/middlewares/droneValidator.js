@@ -1,4 +1,4 @@
-const { check } = require('express-validator');
+const { check, query } = require('express-validator');
 const { droneModelTypes, droneStateTypes } = require('../utils/options');
 
 const droneValidator = {
@@ -46,7 +46,7 @@ const droneValidator = {
       .trim()
       .withMessage('state has to be a string')
       .isIn(droneStateTypes)
-      .withMessage(`Model type has to be either ${droneStateTypes.join(', ')}`),
+      .withMessage(`state type has to be either ${droneStateTypes.join(', ')}`),
   ],
   getLoad: [
     check('id')

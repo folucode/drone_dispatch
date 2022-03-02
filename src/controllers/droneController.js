@@ -17,9 +17,27 @@ module.exports = {
     try {
       const { id } = req.params;
       const { message, status, data } = await droneService.getLoad(id);
-      if (status == false) return errorResponse(res, 400, message);
+      if (status == 'failed') return errorResponse(res, 400, message);
 
       return successResponse(res, 200, data, 'Load successfully fetched');
+    } catch (error) {
+      return errorResponse(res, 500, 'Something went wrong');
+    }
+  },
+
+  getDrones: async (req, res) => {
+    try {
+      const { state } = req.query;
+
+      const { message, status, data } = await droneService.getDrones(state);
+      if (status == 'failed') return errorResponse(res, 400, message);
+
+      return successResponse(
+        res,
+        200,
+        data,
+        'Available drones successfully fetched'
+      );
     } catch (error) {
       return errorResponse(res, 500, 'Something went wrong');
     }
