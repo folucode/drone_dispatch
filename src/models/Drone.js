@@ -13,7 +13,7 @@ const DroneSchema = new Schema({
     enum: droneModelTypes,
   },
   weight: {
-    type: String,
+    type: Number,
     required: true,
   },
   batteryCapacity: {
