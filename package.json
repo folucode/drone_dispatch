@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./config/bootstrap.js",
-    "dev": "nodemon ./config/boostrap.js"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
   "author": "Tosin Moronfolu",
   "license": "MIT",
