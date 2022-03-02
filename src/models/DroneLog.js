@@ -1,28 +1,20 @@
 const { default: mongoose } = require('mongoose');
 const Schema = mongoose.Schema;
 
-const LoadSchema = new Schema(
+const DroneLogSchema = new Schema(
   {
-    name: {
+    serialNumber: {
       type: String,
       required: true,
-    },
-    weight: {
-      type: String,
-      required: true,
-    },
-    code: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: false,
     },
     droneId: {
       type: mongoose.Types.ObjectId,
       required: true,
       ref: 'Drone',
+    },
+    batteryLevel: {
+      type: Number,
+      required: true,
     },
   },
   {
@@ -30,5 +22,5 @@ const LoadSchema = new Schema(
   }
 );
 
-const Load = mongoose.model('Load', LoadSchema);
-module.exports = Load;
+const DroneLog = mongoose.model('DroneLog', DroneLogSchema);
+module.exports = DroneLog;

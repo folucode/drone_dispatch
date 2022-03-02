@@ -1,13 +1,13 @@
-const { Drone, Load } = require('../models');
+const { Drone, Load, DroneLog } = require('../models');
 
 module.exports = {
   register: async (details) => {
-    const { serialNumber, model, weight, batteryCapacity, state } = details;
+    const { serialNumber, model, weight, batteryLevel, state } = details;
     const drone = await Drone.create({
       serialNumber,
       model,
       weight,
-      batteryCapacity,
+      batteryLevel,
       state,
     });
 
@@ -48,5 +48,25 @@ module.exports = {
       status: 'success',
       data: drone,
     };
+  },
+
+  checkBatteryLevel: async () => {
+    const drones = await Drone.find({ state });
+
+    if (drone.length < 1) return;
+
+    await drones.map((drone) => {
+      DroneLog.create({ droneId: _id, serialNumber, batteryLevel });
+
+      if (drone.batteryLevel < 25) {
+        Drone.findOneAndUpdate(
+          { _id: drone._id },
+          { $set: { state: 'IDLE' } },
+          { new: true }
+        );
+      }
+    });
+
+    return;
   },
 };

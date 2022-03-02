@@ -28,7 +28,11 @@ module.exports = {
       droneId,
     });
 
-    await Drone.findOneAndUpdate({ _id: droneId, state: 'LOADED' });
+    await Drone.findOneAndUpdate(
+      { _id: droneId },
+      { $set: { state: 'LOADED' } },
+      { new: true }
+    );
 
     return {
       status: 'success',

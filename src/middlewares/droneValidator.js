@@ -30,7 +30,7 @@ const droneValidator = {
       .withMessage('Weight has to be a number')
       .isInt({ max: 500 })
       .withMessage("weight can't be more than 500"),
-    check('batteryCapacity')
+    check('batteryLevel')
       .not()
       .isEmpty({ ignore_whitespace: true })
       .withMessage('Battery capacity is required')
