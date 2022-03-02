@@ -15,5 +15,6 @@ router.get('/', (req, res) => {
 
 router.post('/drones', droneValidator.create, validatorHandler, droneController.registerDrone);
 router.post('/drones/:id/load', loadValidator.add, validatorHandler, loadController.addLoad);
+router.get('/drones/:id/load', droneValidator.getLoad, validatorHandler, droneController.getLoad);
 
 module.exports = router;

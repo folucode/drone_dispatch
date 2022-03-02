@@ -12,4 +12,16 @@ module.exports = {
       return errorResponse(res, 500, 'Something went wrong');
     }
   },
+
+  getLoad: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { message, status, data } = await droneService.getLoad(id);
+      if (status == false) return errorResponse(res, 400, message);
+
+      return successResponse(res, 200, data, 'Load successfully fetched');
+    } catch (error) {
+      return errorResponse(res, 500, 'Something went wrong');
+    }
+  },
 };

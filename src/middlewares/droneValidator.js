@@ -48,6 +48,15 @@ const droneValidator = {
       .isIn(droneStateTypes)
       .withMessage(`Model type has to be either ${droneStateTypes.join(', ')}`),
   ],
+  getLoad: [
+    check('id')
+      .not()
+      .isEmpty({ ignore_whitespace: true })
+      .withMessage('id is required')
+      .isMongoId()
+      .trim()
+      .withMessage('id is not valid'),
+  ],
 };
 
 module.exports = droneValidator;

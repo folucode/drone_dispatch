@@ -12,7 +12,7 @@ module.exports = {
 
       return successResponse(res, 201, data, 'Load successfully added');
     } catch (error) {
-      return errorResponse(res, 500, 'Something went wrong ' + error.message);
+      return errorResponse(res, 500, 'Something went wrong');
     }
   },
 };
