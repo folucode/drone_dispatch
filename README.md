@@ -5,7 +5,7 @@ This app simulates an hypothetical drone dispatch operation. A drone can be crea
 
 ## Api Documentation
 
-You can access the API using this [link](https://documenter.getpostman.com/view/4848709/UVktoCbz)
+You can access the API using this [link](http://drone-dispatch.herokuapp.com/api/v1)
 You can also find the API documentation [here](https://documenter.getpostman.com/view/4848709/UVktoCbz)
 
 
