@@ -11,9 +11,6 @@ module.exports = {
       state,
     });
 
-    return {
-      status: true,
-      drone,
-    };
+    return drone;
   },
 };

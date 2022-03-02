@@ -18,6 +18,11 @@ const LoadSchema = new Schema({
     type: String,
     required: false,
   },
+  droneId: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'Drone',
+  },
 });
 
 const Load = mongoose.model('Load', LoadSchema);

@@ -1,6 +1,8 @@
 const express = require('express');
 const droneController = require('../src/controllers/droneController');
+const loadController = require('../src/controllers/loadController');
 const droneValidator = require('../src/middlewares/droneValidator');
+const loadValidator = require('../src/middlewares/loadValidator');
 const validatorHandler = require('../src/middlewares/validationHandler');
 
 const router = express.Router();
@@ -12,5 +14,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/drones', droneValidator.create, validatorHandler, droneController.registerDrone);
+router.post('/drones/:id/load', loadValidator.add, validatorHandler, loadController.addLoad);
 
 module.exports = router;
